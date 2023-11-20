@@ -1,9 +1,21 @@
-import TariffListItem from "./TariffListItem/TariffListItem";
+import {TariffListData} from "./TariffListData.js"
+import TariffListItem from "./TariffListItem.jsx";
+import './TariffList.css';
+
 
 function TariffList() {
     return (
-        <div>
-            <TariffListItem></TariffListItem>
+        <div className="TariffList font">
+            {TariffListData.map((tariff) =>
+            <TariffListItem
+            fistBlockBackground={tariff.fistBlockBackground}
+            secondBlockBackground={tariff.secondBlockBackground} 
+            title={tariff.title} 
+            price={tariff.price} 
+            speed={tariff.speed}
+            selected={tariff.selected}>
+            </TariffListItem>
+            )}
         </div>
     );
 }
